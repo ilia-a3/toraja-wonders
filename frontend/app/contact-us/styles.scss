@@ -1,0 +1,31 @@
+#ContactUs {
+  #Info {
+    // background-color: var(--triary-col);
+    background-color: var(--primary-col);
+    margin: 1rem;
+    border-radius: 20px;
+    padding: 1rem;
+    color: var(--light-col);
+    h2 {
+      font-size: 20px;
+      margin: 1rem;
+      text-align: center;
+      //   color: var(--secondary-col);
+    }
+    #details {
+      margin-top: 2rem;
+      border-radius: 20px;
+      width: calc(100% - 2rem);
+      background-color: var(--triary-col);
+      padding: 1rem;
+      width: 50%;
+      min-width: 18rem;
+      p {
+        margin-bottom: 1rem;
+      }
+      :last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
