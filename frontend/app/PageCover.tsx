@@ -5,7 +5,7 @@ export default function PageCover(props: { title: string }) {
       <div id="backdrop">
         <h1>{props.title}</h1>
       </div>
-      <img src="images/toraja-cover.jpg" alt="" />
+      <img src="/images/toraja-cover.jpg" alt="" />
     </div>
   );
 }

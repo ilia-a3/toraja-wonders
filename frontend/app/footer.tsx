@@ -5,7 +5,7 @@ export default function Footer() {
   const navs: { name: string; uri: string }[] = getAllPages();
   return (
     <div id="Footer">
-      <img src="images/logo-2.jpg" alt="logo" />
+      <img src="/images/logo-2.jpg" alt="logo" />
       <div id="title">
         <h1>Toraja Wonders</h1>
         <h2>Unlock The Treasures Together</h2>

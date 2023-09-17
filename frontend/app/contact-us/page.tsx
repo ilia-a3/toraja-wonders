@@ -11,7 +11,9 @@ export default function ContactUs() {
         <h2>Get in touch with one of our representatives</h2>
         <div id="details">
           <p>
-            <a href="tel:+62-821-9626-9074">WhatsApp: +62 821-9626-9074</a>
+            <a href="https://wa.me/6282196269074?text=Hi,+continue+to+WhatsApp+and+one+of+our+represantatives+will+be+with+you+shortly.">
+              WhatsApp: +62 821-9626-9074
+            </a>
           </p>
           <p>
             <a href="tel:+62-821-9626-9074">Telephone: +62 821-9626-9074</a>

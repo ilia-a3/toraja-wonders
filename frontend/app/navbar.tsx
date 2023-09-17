@@ -16,7 +16,7 @@ export default function Navbar({}) {
       setMenuOpen("opening");
       setTimeout(() => {
         setMenuOpen("open");
-      }, 500);
+      }, 100);
     } else if (isOpen()) {
       setMenuOpen("closed");
     }
@@ -64,7 +64,7 @@ export default function Navbar({}) {
     >
       <div className="Navbar">
         <Link href="/">
-          <img src="images/logo-2.jpg" alt="logo" className="logo" />
+          <img src="/images/logo-2.jpg" alt="logo" className="logo" />
         </Link>
         <div className="menu-icon" onClick={toggleMenu}>
           {isOpen() ? (

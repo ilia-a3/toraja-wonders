@@ -18,6 +18,22 @@ export default function AboutIndonesia() {
           </p>
         </div>
       </section>
+      <section id="history">
+        <h1>Some History On Indonesia</h1>
+        <div className="body inv">
+          <p>
+            Indonesia is built around its rich and diverse history. Religion is
+            very big in Indonesia and has inspired lots of actions and buildings
+            in the past. In the past, Indonesia was made up and turned into an
+            establishment of islamic kingdoms from Sumatra up until the 7th
+            centure CE, where lots of taiwanese imigrants can and brought their
+            bhuddist background to the mix. Indonesia also acted as a very
+            popular and strategically placed trade center for their bowls, jars,
+            jugs and more pottery.
+          </p>
+          <img src="images/history-search.bmp" alt="" />
+        </div>
+      </section>
     </div>
   );
 }

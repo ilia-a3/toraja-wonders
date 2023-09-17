@@ -1,16 +1,50 @@
 #AboutIndonesia {
-  #intro {
+  margin-bottom: 1rem;
+  #intro,
+  #history {
+    padding: 1rem;
+    // margin-top: 3rem;
     // padding: 3rem;
-    width: 60rem;
-    h1 {
-      font-size: 30px;
+    // width: 60rem;
+  }
+  h1 {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 3rem;
+    margin-top: 1rem;
+    color: var(--secondary-col);
+  }
+  .body {
+    display: flex;
+    flex-wrap: nowrap;
+    height: max-content;
+    img {
+      width: 20rem;
+      //   width: 100%;
     }
-    .body {
+    // object-fit: fill;
+
+    p {
+      color: var(--primary-col);
+      //   float: right;
+      //   width: min-content;
+      max-width: 30rem;
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
+    @media screen and (max-width: 600px) {
+      flex-wrap: wrap;
+      justify-content: center;
+      &.inv {
+        flex-direction: column-reverse;
+      }
       img {
+        width: 100%;
       }
       p {
-        //   float: right;
-        //   width: min-content;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        width: 100%;
       }
     }
   }

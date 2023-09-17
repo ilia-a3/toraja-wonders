@@ -1,13 +1,13 @@
 // TEMPORARY
-
-const articles: {
+export default interface Blog {
   imgUrls: string[];
   title: string;
   id: number;
   paragraphs: string[];
   datePublished: string;
   category: string;
-}[] = [
+}
+const articles: Blog[] = [
   {
     id: 0,
     imgUrls: ["images/toraja-cover.jpg"],
@@ -130,7 +130,17 @@ const articles: {
   },
 ];
 
-export async function getArticleOfType(type: string) {
+export async function getArticleOfType(type: string): Promise<Blog[]> {
   console.log("j");
   return articles.filter((v) => type == v.category);
+}
+export async function getArticleByTitle(title: string): Promise<Blog | null> {
+  let blog = null;
+  articles.forEach((a) => {
+    if (a.title == title) {
+      blog = a;
+    }
+  });
+
+  return blog;
 }
