@@ -15,6 +15,7 @@ $width: 900px;
 // } @else if calc((#{100vw} < #{300px} * 2)) {
 // } @else {
 // }
+
 @media screen and (max-width: $nodeWidth) {
   // $nodeCount: 1;
   $nodeWidth: 90vw;

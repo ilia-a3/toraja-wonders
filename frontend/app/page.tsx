@@ -5,7 +5,7 @@ import { MouseEventHandler, useEffect, useRef, useState } from "react";
 import Widget from "./components/widget/Widget";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { getArticleOfType } from "./API/APIRequest";
+import { getArticleOfType } from "./store/APIRequest";
 import Link from "next/link";
 
 // const TILE_SIZE = 300;

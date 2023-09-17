@@ -4,20 +4,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import SearchComponent from "./components/SearchComponent";
+import getAllPages from "./store/Pages";
 
 export default function Navbar({}) {
   const [menuOpen, setMenuOpen] = useState("closed");
   const [loaded, setloaded] = useState(false);
   useEffect(() => setloaded(true));
-  const navs: { name: string; uri: string }[] = [
-    { name: "Places to explore", uri: "/explore" },
-    { name: "packages", uri: "/packages" },
-    { name: "About Indonesia", uri: "/about-indonesia" },
-    { name: "Things to do in Indonesia", uri: "/things-to-do" },
-    { name: "History of Sulawesi Island", uri: "/history" },
-    { name: "Contact Us", uri: "/contact-us" },
-    { name: "Partnerships", uri: "/partnerships" },
-  ];
+  const navs: { name: string; uri: string }[] = getAllPages();
   const toggleMenu = () => {
     if (menuOpen == "closed") {
       setMenuOpen("opening");
