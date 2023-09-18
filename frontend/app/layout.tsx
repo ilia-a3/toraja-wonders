@@ -6,10 +6,11 @@ import { Inter } from "next/font/google";
 import Head from "next/head";
 import Navbar from "./navbar";
 import Footer from "./footer";
+import { Metadata } from "next";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Toraja Wonders - Explore Indonesia",
   description:
     "Explore the Sulawesi islands in Indonesia and book your next holiday.",

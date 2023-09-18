@@ -10,8 +10,8 @@ export default function Footer() {
         <h1>Toraja Wonders</h1>
         <h2>Unlock The Treasures Together</h2>
         <p>Email: </p>
-        <p>Phone: </p>
-        <p>Whatsapp: </p>
+        <p>Phone: +62 821-9626-9074</p>
+        <p>Whatsapp: +62 821-9626-9074</p>
       </div>
       <div id="navigation">
         {navs.map((nav) => (

@@ -7,6 +7,7 @@ import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { getArticleOfType } from "./store/APIRequest";
 import Link from "next/link";
+import HomeExploreSection from "./components/homeSection/HomeSection";
 
 // const TILE_SIZE = 300;
 
@@ -59,43 +60,6 @@ export default function Home() {
     }[]
   >([]);
 
-  function forwardDest() {
-    destinationsRef.current?.scrollBy({
-      left: tileSize,
-      behavior: "smooth",
-    });
-  }
-  function backDest() {
-    destinationsRef.current?.scrollBy({
-      left: -tileSize,
-      behavior: "smooth",
-    });
-  }
-  function forwardPlace() {
-    attractionsRef.current?.scrollBy({
-      left: tileSize,
-      behavior: "smooth",
-    });
-  }
-  function backPlace() {
-    attractionsRef.current?.scrollBy({
-      left: -tileSize,
-      behavior: "smooth",
-    });
-  }
-  function forwardThings() {
-    thingsRef.current?.scrollBy({
-      left: tileSize,
-      behavior: "smooth",
-    });
-  }
-  function backThings() {
-    thingsRef.current?.scrollBy({
-      left: -tileSize,
-      behavior: "smooth",
-    });
-  }
-
   function onHeroClick(to: string) {
     if (to == "destinations") {
       destinationsRef.current?.focus();
@@ -105,19 +69,6 @@ export default function Home() {
     } else if (to == "things") {
       thingsRef.current?.scrollTo();
     }
-  }
-
-  function moveToDestination(event: any) {
-    event.preventDefault();
-    onHeroClick("destinations");
-  }
-  function moveToAttractions(event: any) {
-    event.preventDefault();
-    onHeroClick("attractions");
-  }
-  function moveToThings(event: any) {
-    event.preventDefault();
-    onHeroClick("things");
   }
   return (
     <main>
@@ -147,86 +98,35 @@ export default function Home() {
       <section id="places-to-explore">
         {/* <Link href="example">Amongus</Link> */}
         <h2>Where to explore in Sulawesi</h2>
-        <section id="popular-destinations" className="explore-section">
-          <h3>Popular Destinations</h3>
-          <p>
-            Some of the hottest and most popular destinations that are visited
-            very frequently.
-          </p>
-          {destinations.length > 0 && (
-            <div className="scroll-menu" ref={destinationsRef}>
-              <button onClick={backDest} className="arrow left">
-                <FontAwesomeIcon icon={faArrowLeft}></FontAwesomeIcon>
-              </button>
-              <button onClick={forwardDest} className="arrow right">
-                <FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon>
-              </button>
-              <div className="scr">
-                {destinations.map((w) => (
-                  <Widget
-                    key={w.id}
-                    img={w.imgUrls[0]}
-                    title={w.title}
-                    first={w.id == 0}
-                  />
-                ))}
-              </div>
-            </div>
-          )}
-        </section>
+        <HomeExploreSection
+          title={"popular-destinations"}
+          description={
+            "Some of the hottest and most popular destinations that are visited very frequently."
+          }
+          elements={destinations}
+          tileSize={tileSize}
+          coverUrl="/images/toraja-cover.jpg"
+        ></HomeExploreSection>
         <hr />
-        <section id="top-attractions" className="explore-section">
-          <h3>Biggest Attractions</h3>
-          <p>Highly rated and recommended attractions that make up Sulawesi.</p>
-          {attractions.length > 0 && (
-            <div className="scroll-menu" ref={attractionsRef}>
-              <button onClick={backPlace} className="arrow left">
-                <FontAwesomeIcon icon={faArrowLeft}></FontAwesomeIcon>
-              </button>
-              <button onClick={forwardPlace} className="arrow right">
-                <FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon>
-              </button>
-              <div className="scr">
-                {attractions.map((w) => (
-                  <Widget
-                    key={w.id}
-                    img={w.imgUrls[0]}
-                    title={w.title}
-                    first={w.id == 0}
-                    className="widget"
-                  />
-                ))}
-              </div>
-            </div>
-          )}
-        </section>
+        <HomeExploreSection
+          title={"biggest-attractions"}
+          description={
+            "Highly rated and recommended attractions that make up Sulawesi."
+          }
+          elements={attractions}
+          tileSize={tileSize}
+          coverUrl="/images/toraja-cover.jpg"
+        />
         <hr />
-        <section id="things-to-do" className="explore-section">
-          <h3>Things To Do</h3>
-          <p>
-            Not sure what Sulawesi is about? Find out about what you can do.
-          </p>
-          {things.length > 0 && (
-            <div className="scroll-menu" ref={thingsRef}>
-              <button onClick={backThings} className="arrow left">
-                <FontAwesomeIcon icon={faArrowLeft}></FontAwesomeIcon>
-              </button>
-              <button onClick={forwardThings} className="arrow right">
-                <FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon>
-              </button>
-              <div className="scr">
-                {things.map((w) => (
-                  <Widget
-                    key={w.id}
-                    img={w.imgUrls[0]}
-                    title={w.title}
-                    first={w.id == 0}
-                  />
-                ))}
-              </div>
-            </div>
-          )}
-        </section>
+        <HomeExploreSection
+          title={"things-to-do"}
+          description={
+            "Not sure what Sulawesi is about? Find out about what you can do."
+          }
+          elements={things}
+          tileSize={tileSize}
+          coverUrl="/images/toraja-cover.jpg"
+        />
       </section>
     </main>
   );
