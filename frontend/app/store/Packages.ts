@@ -4,6 +4,7 @@ export interface Package {
   description: string;
   price: number;
 }
+// http://ip-api.com/json?fields=status,country,currency
 export default async function getAllPackages(): Promise<Package[]> {
   return [
     { id: 1, name: "basic", description: "smol one", price: 11.99 },
