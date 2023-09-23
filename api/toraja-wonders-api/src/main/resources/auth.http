@@ -2,6 +2,6 @@ POST http://localhost:8080/api/auth/login
 Content-Type: application/json
 
 {
-  "username": "adu",
-  "password": "StrongPass123"
+  "username": "root",
+  "password": "AKQro4W8P9aa5dtR"
 }

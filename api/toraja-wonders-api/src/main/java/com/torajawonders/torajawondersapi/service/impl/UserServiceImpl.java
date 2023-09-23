@@ -28,11 +28,17 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User registerUser(UserRegistration userRegistration) {
-        return userRepository.save(newUser(userRegistration, "USR"));
+        return userRepository.save(newUser(userRegistration, "ROLE_USR"));
     }
+
+    @Override
+    public boolean userExistsByUsername(String username) {
+        return userRepository.existsByUsername(username);
+    }
+
     @Override
     public User registerAdmin(UserRegistration userRegistration) {
-        return userRepository.save(newUser(userRegistration, "ADM"));
+        return userRepository.save(newUser(userRegistration, "ROLE_ADM"));
     }
     private User newUser(UserRegistration userRegistration, String role) {
         User user = modelMapper.map(userRegistration, User.class);

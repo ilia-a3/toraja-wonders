@@ -24,7 +24,7 @@ public class UserController {
         return userService.registerUser(userRegistration);
 
     }
-    @PreAuthorize("hasRole(ADM)")
+    @PreAuthorize("hasRole('ADM')")
     @PostMapping("register/admin")
     public User registerAdmin(@RequestBody UserRegistration userRegistration) {
         return userService.registerAdmin(userRegistration);
