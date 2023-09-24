@@ -6,5 +6,5 @@ import com.torajawonders.torajawondersapi.payload.UserRegistration;
 public interface UserService {
     User registerAdmin(UserRegistration userRegistration);
     User registerUser(UserRegistration userRegistration);
-    boolean userExistsByUsername(String username);
+    User getUserByUsername(String username);
 }

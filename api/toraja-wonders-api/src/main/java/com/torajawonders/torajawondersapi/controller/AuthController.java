@@ -20,4 +20,9 @@ public class AuthController {
     public TokensDto login(@RequestBody LoginForm loginForm) {
         return authService.login(loginForm);
     }
+
+    @PostMapping("refresh")
+    public TokensDto refresh(@RequestBody TokensDto tokens) {
+        return authService.refresh(tokens.getRefreshToken());
+    }
 }

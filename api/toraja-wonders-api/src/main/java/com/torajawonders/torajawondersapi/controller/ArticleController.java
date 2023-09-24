@@ -7,6 +7,7 @@ import com.torajawonders.torajawondersapi.payload.ArticleSectionDto;
 import com.torajawonders.torajawondersapi.service.ArticleService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -25,6 +26,7 @@ public class ArticleController {
         }
         return ResponseEntity.ok(a);
     }
+    @PreAuthorize("hasRole('ADM')")
     @PostMapping
     public ArticleResponse addArticle(@RequestBody ArticleDto articleDto) {
         return articleService.addArticle(articleDto);
