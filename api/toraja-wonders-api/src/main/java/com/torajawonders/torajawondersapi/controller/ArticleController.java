@@ -10,6 +10,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/articles/")
 public class ArticleController {
@@ -18,7 +20,7 @@ public class ArticleController {
     public ArticleController(ArticleService articleService) {
         this.articleService = articleService;
     }
-    @GetMapping("{title}")
+    @GetMapping("title/{title}")
     public ResponseEntity<ArticleResponse> getArticleByTitle(@PathVariable String title) {
         ArticleResponse a = articleService.getArticleByTitle(title);
         if (a == null) {
@@ -32,5 +34,9 @@ public class ArticleController {
         return articleService.addArticle(articleDto);
     }
 
+    @GetMapping("all")
+    public List<ArticleResponse> getAllArticles() {
+        return articleService.getAllArticles();
+    }
 
 }

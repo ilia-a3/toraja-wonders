@@ -6,4 +6,5 @@ import com.torajawonders.torajawondersapi.entity.User;
 public interface RefreshTokenService {
     User validateToken(String token);
     String generateToken(String ownerUsername);
+    void removeToken(String token);
 }

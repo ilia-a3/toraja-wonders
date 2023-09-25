@@ -19,7 +19,6 @@ public class AuthServiceImpl implements AuthService {
     private AuthenticationManager authenticationManager;
     private JwtTokenProvider jwtTokenProvider;
     private RefreshTokenService refreshTokenService;
-    private PasswordEncoder passwordEncoder;
 
     public AuthServiceImpl(AuthenticationManager authenticationManager, JwtTokenProvider jwtTokenProvider, RefreshTokenService refreshTokenService) {
         this.authenticationManager = authenticationManager;
@@ -48,5 +47,10 @@ public class AuthServiceImpl implements AuthService {
     public TokensDto refresh(String refreshToken) {
         User user =  refreshTokenService.validateToken(refreshToken);
         return new TokensDto(jwtTokenProvider.generateToken(user.getUsername()), refreshToken);
+    }
+
+    @Override
+    public void logout(String refresh) {
+        refreshTokenService.removeToken(refresh);
     }
 }

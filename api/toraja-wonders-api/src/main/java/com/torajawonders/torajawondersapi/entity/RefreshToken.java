@@ -18,7 +18,7 @@ public class RefreshToken {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @OneToOne
-    @JoinColumn
+    @JoinColumn(unique = false)
     private User owner;
     private String token;
     private Date expiry;

@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -29,18 +30,20 @@ public class RefreshTokenServiceImpl implements RefreshTokenService {
     @Override
     public User validateToken(String token) {
         System.out.println(token);
-        RefreshToken refreshToken = refreshTokenRepository.findByToken(token).orElseThrow(() -> new APIException("AUTH_ERROR", "Refresh token doesn't exist", HttpStatus.UNAUTHORIZED));
-        if (new Date().after(refreshToken.getExpiry())){
-            throw new APIException("AUTH_ERROR", "Refresh token has expired. Please login again", HttpStatus.UNAUTHORIZED);
-        }
+        RefreshToken refreshToken = validateRefreshToken(token);
+
         return refreshToken.getOwner();
     }
 
     @Override
     public String generateToken(String ownerUsername) {
-        RefreshToken refreshToken = new RefreshToken();
+        User owner = userService.getUserByUsername(ownerUsername);
+//        Remove old token if one already exists for that user
+        refreshTokenRepository.delete(refreshTokenRepository.findByOwner(owner).orElseThrow());
 
-        refreshToken.setOwner(userService.getUserByUsername(ownerUsername));
+
+        RefreshToken refreshToken = new RefreshToken();
+        refreshToken.setOwner(owner);
         if (refreshToken.getOwner() == null) {
             throw new APIException("AUTH", "That username doesn't exist", HttpStatus.UNAUTHORIZED);
         }
@@ -49,8 +52,22 @@ public class RefreshTokenServiceImpl implements RefreshTokenService {
         expiryDate.setTime(new Date().getTime() + Long.decode(expiration));
         refreshToken.setExpiry(expiryDate);
 
-        refreshToken.setToken(UUID.randomUUID().toString() + "@" + expiryDate.toString().replace(" ", "-"));
+        refreshToken.setToken(UUID.randomUUID() + "@" + expiryDate.toString().replace(" ", "-"));
         refreshTokenRepository.save(refreshToken);
         return refreshToken.getToken();
+    }
+
+    @Override
+    public void removeToken(String token) {
+        refreshTokenRepository.deleteByToken(token);
+    }
+
+    private RefreshToken validateRefreshToken(String tokenStr){
+        RefreshToken token = refreshTokenRepository.findByToken(tokenStr).orElseThrow(() -> new APIException("AUTH_TOKEN", "Refresh token doesn't exist", HttpStatus.UNAUTHORIZED));
+        if (new Date().after(token.getExpiry())){
+            removeToken(token.getToken());
+            throw new APIException("AUTH_ERROR", "Refresh token has expired. Please login again", HttpStatus.UNAUTHORIZED);
+        }
+        return token;
     }
 }

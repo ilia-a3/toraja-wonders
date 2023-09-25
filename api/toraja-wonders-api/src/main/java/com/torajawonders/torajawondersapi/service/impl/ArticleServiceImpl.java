@@ -49,6 +49,16 @@ public class ArticleServiceImpl implements ArticleService {
         return getArticleByTitle(articleDto.getTitle());
     }
 
+    @Override
+    public List<ArticleResponse> getAllArticles() {
+        return articleRepository.findAll().stream().map((element) -> modelMapper.map(element, ArticleResponse.class)).collect(Collectors.toList());
+    }
+
+    @Override
+    public ArticleResponse editArticle(ArticleDto articleResponse) {
+        return null;
+    }
+
     public ArticleSection addArticleSection(ArticleSectionDto articleSectionDto) {
         return articleSectionRepository.save(modelMapper.map(articleSectionDto, ArticleSection.class));
     }
