@@ -1,9 +1,16 @@
 // TEMPORARY
-export default interface Blog {
+export interface ArticleSection {
+  id: number;
+  title: string;
+  type: string;
+  text: string;
+  imgUrl: string;
+}
+export interface Blog {
   imgUrls: string[];
   title: string;
   id: number;
-  paragraphs: string[];
+  sections: ArticleSection[];
   datePublished: string;
   category: string;
 }
@@ -131,6 +138,7 @@ let articles: Blog[] = [];
 //   },
 // ];
 async function refreshArticles() {
+  console.log("Refreshing articles");
   if (process.env.ARTICLE_URL != null) {
     const res = await fetch(process.env.ARTICLE_URL + "all");
     if (res.ok) {
@@ -152,6 +160,10 @@ export async function getArticleByTitle(title: string): Promise<Blog | null> {
       blog = a;
     }
   });
-
   return blog;
+}
+
+export async function getAllArticles() {
+  await refreshArticles();
+  return articles;
 }

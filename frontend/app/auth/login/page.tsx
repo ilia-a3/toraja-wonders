@@ -34,7 +34,9 @@ export default function loginPage() {
       if (res.status == 401) {
         setError(-1);
       } else if (res.status == 200) {
-        setAuth(await res.json());
+        const tokens = await res.json();
+        localStorage.setItem("refreshToken", tokens.refreshToken);
+        localStorage.setItem("accessToken", tokens.accessToken);
         setError(1);
         setSuccess(true);
       }

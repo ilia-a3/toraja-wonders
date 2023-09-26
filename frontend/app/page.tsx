@@ -5,7 +5,7 @@ import { MouseEventHandler, useEffect, useRef, useState } from "react";
 import Widget from "./components/widget/Widget";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { getArticleOfType } from "./store/APIRequest";
+import { Blog, getArticleOfType } from "./store/APIRequest";
 import Link from "next/link";
 import HomeExploreSection from "./components/homeSection/HomeSection";
 
@@ -27,38 +27,11 @@ export default function Home() {
       setattractions(await getArticleOfType("attractions"));
     })();
   }, []);
-  const [destinations, setDestinations] = useState<
-    {
-      imgUrls: string[];
-      title: string;
-      id: number;
-      paragraphs: string[];
-      datePublished: string;
-      category: string;
-    }[]
-  >([]);
+  const [destinations, setDestinations] = useState<Blog[]>([]);
   const attractionsRef = useRef<HTMLDivElement>(null);
-  const [attractions, setattractions] = useState<
-    {
-      imgUrls: string[];
-      title: string;
-      id: number;
-      paragraphs: string[];
-      datePublished: string;
-      category: string;
-    }[]
-  >([]);
+  const [attractions, setattractions] = useState<Blog[]>([]);
   const thingsRef = useRef<HTMLDivElement>(null);
-  const [things, setThings] = useState<
-    {
-      imgUrls: string[];
-      title: string;
-      id: number;
-      paragraphs: string[];
-      datePublished: string;
-      category: string;
-    }[]
-  >([]);
+  const [things, setThings] = useState<Blog[]>([]);
 
   function onHeroClick(to: string) {
     if (to == "destinations") {

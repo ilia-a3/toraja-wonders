@@ -1,0 +1,19 @@
+#NewArticlePage {
+  #add-section {
+    background-color: var(--secondary-col);
+    padding: 1rem;
+    width: fit-content;
+    color: var(--light-col);
+    button,
+    input,
+    label {
+      display: block;
+      margin-bottom: 1rem;
+    }
+    button {
+      padding: 0.5rem;
+      border-radius: 20px;
+      border-width: 3px;
+    }
+  }
+}
