@@ -1,0 +1,20 @@
+###
+POST http://localhost:8080/api/users/register/admin
+Content-Type: application/json
+Authorization:Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZHUiLCJpYXQiOjE2OTUzODQ5OTYsImV4cCI6MTY5NTk4OTc5Nn0.Ew_ZinbYATsUEddL4f1s-RjeCVrYWLy_iYv9wOes8USn0YyWTAnRhtLPeBckKGtq
+
+{
+  "username": "cs",
+  "email": "cs@admin.com",
+  "password": "StrongPass123"
+}
+
+###
+POST http://localhost:8080/api/users/register/user
+Content-Type: application/json
+
+{
+  "username": "cs-u",
+  "email": "cs@user.com",
+  "password": "StrongPass123"
+}

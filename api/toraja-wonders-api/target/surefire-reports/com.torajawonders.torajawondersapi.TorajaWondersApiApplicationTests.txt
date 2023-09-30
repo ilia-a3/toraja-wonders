@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.torajawonders.torajawondersapi.TorajaWondersApiApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.578 s - in com.torajawonders.torajawondersapi.TorajaWondersApiApplicationTests

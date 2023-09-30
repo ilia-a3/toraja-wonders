@@ -1,0 +1,14 @@
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "root",
+  "password": "AKQro4W8P9aa5dtR"
+}
+###
+POST http://localhost:8080/api/auth/refresh
+Content-Type: application/json
+
+{
+  "refreshToken": "787ddec3-305b-45c4-8c96-85e1a3f442fb@Sat-Sep-30-18:53:27-AEST-2023"
+}

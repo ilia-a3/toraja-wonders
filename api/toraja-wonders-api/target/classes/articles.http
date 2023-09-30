@@ -1,0 +1,21 @@
+###
+GET http://localhost:8080/api/articles/e
+
+###
+POST http://localhost:8080/api/articles/
+Content-Type: application/json
+
+{
+  "title": "f",
+  "imgUrls": ["https://d"],
+  "sections": [{
+    "title": "first-part",
+    "type": "TXT",
+    "text": "this is the first part"
+  },{
+    "title": "second-part",
+    "type": "IMG",
+    "imgUrl": "https://img"
+  }],
+  "category": "TEST"
+}
