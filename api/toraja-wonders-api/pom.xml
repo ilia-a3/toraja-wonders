@@ -92,6 +92,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>tw-api</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.asciidoctor</groupId>
