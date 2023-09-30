@@ -3,7 +3,11 @@
 import Cover from "./cover";
 import { MouseEventHandler, useEffect, useRef, useState } from "react";
 import Widget from "./components/widget/Widget";
-import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import {
+  faArrowLeft,
+  faArrowRight,
+  faArrowRightLong,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Blog, getArticleOfType } from "./store/APIRequest";
 import Link from "next/link";
@@ -100,6 +104,18 @@ export default function Home() {
           tileSize={tileSize}
           coverUrl="/images/toraja-cover.jpg"
         />
+      </section>
+      <section id="orderHome">
+        <h1>Want To Travel Indonesia?</h1>
+        <h3>Explore various packages to make your trip more memorable.</h3>
+        <Link href={"/packages"}>
+          <button>
+            Our Package Options
+            <span>
+              <FontAwesomeIcon icon={faArrowRightLong} />
+            </span>
+          </button>
+        </Link>
       </section>
     </main>
   );

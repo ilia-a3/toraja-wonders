@@ -1,5 +1,8 @@
 #PackagesPage {
   section {
+    max-width: 90vw;
+    margin-left: auto;
+    margin-right: auto;
     h1 {
       font-size: 30px;
       //   text-align: center;
@@ -16,7 +19,8 @@
       flex-wrap: wrap;
       justify-content: space-evenly;
       row-gap: 1rem;
-      max-width: 55rem;
+      // max-width: 55rem;
+      width: 100%;
       .package {
         padding: 3rem;
         background-color: var(--primary-col);
@@ -44,13 +48,10 @@
         .price {
           font-size: 20px;
         }
-        @media screen and (max-width: 550px) {
-          width: 90vw;
-        }
+        // @media screen and (max-width: 550px) {
+        //   width: 90vw;
+        // }
       }
-    }
-    @media screen and (max-width: 1500px) {
-      width: 95vw;
     }
   }
 }

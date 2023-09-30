@@ -15,7 +15,7 @@
   overflow-x: hidden;
   img {
     height: 100%;
-    width: auto;
+    object-fit: cover;
     border-radius: 20px;
   }
   p {

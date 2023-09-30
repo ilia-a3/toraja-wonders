@@ -92,10 +92,13 @@ $width: 900px;
   }
 
   .menu-icon {
+    border: 1px solid var(--light-col);
+
     margin-left: 2rem;
     width: 4rem;
     height: 4rem;
-    background-color: var(--primary-col);
+    background-color: var(--secondary-col);
+    color: var(--light-col);
     border-radius: 15px;
     padding: 1rem;
     .menu-bar-icon {
@@ -305,10 +308,49 @@ $width: 900px;
   }
 }
 button {
-  border: 5px solid var(--primary-col);
+  // border: 5px solid var(--primary-col);
   background-color: var(--secondary-col);
   color: var(--light-col);
   &:hover {
     background-color: var(--primary-col);
+  }
+}
+section#orderHome {
+  max-width: 30rem;
+  margin: 2rem auto 2rem auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: baseline;
+  background-color: var(--light-col);
+  color: var(--secondary-col);
+  padding: 2rem;
+  border-radius: 20px;
+  h1 {
+    font-size: 25px;
+    color: var(--primary-col);
+  }
+  a {
+    margin-top: 2rem;
+    border-radius: 20px;
+    width: fit-content;
+    transition: all 1000ms ease-out;
+    button {
+      transition: all 1000ms ease-out;
+      border-radius: 20px;
+      padding: 1rem;
+      color: var(--primary-col);
+      background-color: var(--triary-col);
+      span {
+        display: none;
+        margin-left: 10px;
+        transition: all 3s;
+      }
+      width: 100%;
+      &:hover {
+        span {
+          display: initial;
+        }
+      }
+    }
   }
 }

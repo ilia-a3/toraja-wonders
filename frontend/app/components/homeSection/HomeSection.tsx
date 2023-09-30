@@ -1,8 +1,9 @@
-import Blog from "@/app/store/APIRequest";
+import { Blog } from "@/app/store/APIRequest";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Widget from "../widget/Widget";
 import { ReactNode, useRef } from "react";
+import "./HomeSection.scss";
 
 export default function HomeExploreSection(props: {
   title: string;
@@ -32,7 +33,7 @@ export default function HomeExploreSection(props: {
   }
 
   return (
-    <section id="popular-destinations" className="explore-section">
+    <section id={props.title} className="explore-section">
       <div className="description">
         <img
           src={props.coverUrl}
@@ -40,8 +41,10 @@ export default function HomeExploreSection(props: {
           width={props.tileSize}
           className="explore-cover"
         />
-        <h3>{name}</h3>
-        <p>{props.description}</p>
+        <div id="text">
+          <h3>{name}</h3>
+          <p>{props.description}</p>
+        </div>
       </div>
       {props.elements.length > 0 && (
         <div className="scroll-menu" ref={scrRef}>

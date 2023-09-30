@@ -1,7 +1,7 @@
 "use client";
 import "./styles.scss";
 import PageCover from "@/app/PageCover";
-import Blog, { getArticleByTitle } from "@/app/store/APIRequest";
+import { getArticleByTitle, Blog } from "@/app/store/APIRequest";
 import { useEffect, useState } from "react";
 export default function BlogPage(props: { params: { blogId: string } }) {
   console.log(props);

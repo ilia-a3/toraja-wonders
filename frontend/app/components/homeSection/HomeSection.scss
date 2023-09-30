@@ -1,0 +1,24 @@
+.explore-section {
+  .description {
+    width: 90vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-wrap: nowrap;
+
+    #text {
+      float: right;
+      margin-left: 1rem;
+    }
+    @media screen and (max-width: 500px) {
+      flex-wrap: wrap;
+      img {
+        margin-bottom: 1rem;
+      }
+      #text {
+        margin: 0;
+      }
+    }
+  }
+}
