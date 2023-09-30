@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/toraijeq/frontend/
+    - /bin/cp -R frontend $DEPLOYPATH
