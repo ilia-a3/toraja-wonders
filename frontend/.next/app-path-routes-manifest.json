@@ -1,0 +1,18 @@
+{
+  "/favicon.ico/route": "/favicon.ico",
+  "/page": "/",
+  "/about-indonesia/page": "/about-indonesia",
+  "/admin/page": "/admin",
+  "/blogs/page": "/blogs",
+  "/contact-us/page": "/contact-us",
+  "/example/page": "/example",
+  "/explore/page": "/explore",
+  "/packages/page": "/packages",
+  "/partnerships/page": "/partnerships",
+  "/search/page": "/search",
+  "/admin/articles/page": "/admin/articles",
+  "/auth/login/page": "/auth/login",
+  "/blogs/[blogId]/page": "/blogs/[blogId]",
+  "/admin/articles/new/page": "/admin/articles/new",
+  "/admin/articles/by-id/[articleTitle]/page": "/admin/articles/by-id/[articleTitle]"
+}
