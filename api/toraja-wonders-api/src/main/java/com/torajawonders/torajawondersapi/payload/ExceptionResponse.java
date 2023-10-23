@@ -5,16 +5,17 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.Objects;
 
 @Getter
 @Setter
 @NoArgsConstructor
-public class ExceptionResponse {
+public class ExceptionResponse<T> {
     private String code;
-    private String details;
+    private T details;
     private Date timestamp;
 
-    public ExceptionResponse(String code, String details) {
+    public ExceptionResponse(String code, T details) {
         this.code = code;
         this.details = details;
         timestamp = new Date();

@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import java.sql.Ref;
 import java.util.Date;
 import java.util.Optional;
 import java.util.UUID;
@@ -39,7 +40,7 @@ public class RefreshTokenServiceImpl implements RefreshTokenService {
     public String generateToken(String ownerUsername) {
         User owner = userService.getUserByUsername(ownerUsername);
 //        Remove old token if one already exists for that user
-        refreshTokenRepository.delete(refreshTokenRepository.findByOwner(owner).orElseThrow());
+        refreshTokenRepository.findByOwner(owner).ifPresent(refreshToken -> refreshTokenRepository.delete(refreshToken));
 
 
         RefreshToken refreshToken = new RefreshToken();
@@ -66,7 +67,7 @@ public class RefreshTokenServiceImpl implements RefreshTokenService {
         RefreshToken token = refreshTokenRepository.findByToken(tokenStr).orElseThrow(() -> new APIException("AUTH_TOKEN", "Refresh token doesn't exist", HttpStatus.UNAUTHORIZED));
         if (new Date().after(token.getExpiry())){
             removeToken(token.getToken());
-            throw new APIException("AUTH_ERROR", "Refresh token has expired. Please login again", HttpStatus.UNAUTHORIZED);
+            throw new APIException("AUTH_ERROR_TOKEN_EXPIRED", "Refresh token has expired. Please login again", HttpStatus.UNAUTHORIZED);
         }
         return token;
     }

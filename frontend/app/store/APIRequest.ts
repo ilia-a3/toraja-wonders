@@ -1,6 +1,8 @@
+import { getAuth, refresh } from "./auth";
+
 // TEMPORARY
 export interface ArticleSection {
-  id?: number;
+  id: number;
   title: string;
   type: string;
   text?: string;
@@ -19,7 +21,9 @@ let articles: Blog[] = [
     id: 0,
     imgUrls: ["images/toraja-cover.jpg"],
     title: "Toraja1",
-    sections: [{ title: "lorem impsum", type: "TXT", text: "lorem impsum" }],
+    sections: [
+      { id: 0, title: "lorem impsum", type: "TXT", text: "lorem impsum" },
+    ],
     datePublished: "12-07-2023",
     category: "popular-destinations",
   },
@@ -27,7 +31,9 @@ let articles: Blog[] = [
     id: 1,
     imgUrls: ["images/toraja-cover.jpg"],
     title: "Toraja2",
-    sections: [{ title: "lorem impsum", type: "TXT", text: "lorem impsum" }],
+    sections: [
+      { id: 0, title: "lorem impsum", type: "TXT", text: "lorem impsum" },
+    ],
     datePublished: "12-07-2023",
     category: "popular-destinations",
   },
@@ -35,7 +41,9 @@ let articles: Blog[] = [
     id: 2,
     imgUrls: ["images/toraja-cover.jpg"],
     title: "Toraja3",
-    sections: [{ title: "lorem impsum", type: "TXT", text: "lorem impsum" }],
+    sections: [
+      { id: 0, title: "lorem impsum", type: "TXT", text: "lorem impsum" },
+    ],
     datePublished: "12-07-2023",
     category: "popular-destinations",
   },
@@ -43,7 +51,9 @@ let articles: Blog[] = [
     id: 3,
     imgUrls: ["images/toraja-cover.jpg"],
     title: "Toraja4",
-    sections: [{ title: "lorem impsum", type: "TXT", text: "lorem impsum" }],
+    sections: [
+      { id: 0, title: "lorem impsum", type: "TXT", text: "lorem impsum" },
+    ],
     datePublished: "12-07-2023",
     category: "popular-destinations",
   },
@@ -51,7 +61,9 @@ let articles: Blog[] = [
     id: 4,
     imgUrls: ["images/toraja-cover.jpg"],
     title: "Toraja5",
-    sections: [{ title: "lorem impsum", type: "TXT", text: "lorem impsum" }],
+    sections: [
+      { id: 0, title: "lorem impsum", type: "TXT", text: "lorem impsum" },
+    ],
     datePublished: "12-07-2023",
     category: "popular-destinations",
   },
@@ -59,7 +71,9 @@ let articles: Blog[] = [
     id: 5,
     imgUrls: ["images/toraja-cover.jpg"],
     title: "Toraja1",
-    sections: [{ title: "lorem impsum", type: "TXT", text: "lorem impsum" }],
+    sections: [
+      { id: 0, title: "lorem impsum", type: "TXT", text: "lorem impsum" },
+    ],
     datePublished: "12-07-2023",
     category: "attractions",
   },
@@ -67,7 +81,9 @@ let articles: Blog[] = [
     id: 6,
     imgUrls: ["images/toraja-cover.jpg"],
     title: "Toraja2",
-    sections: [{ title: "lorem impsum", type: "TXT", text: "lorem impsum" }],
+    sections: [
+      { id: 0, title: "lorem impsum", type: "TXT", text: "lorem impsum" },
+    ],
     datePublished: "12-07-2023",
     category: "attractions",
   },
@@ -75,7 +91,9 @@ let articles: Blog[] = [
     id: 7,
     imgUrls: ["images/toraja-cover.jpg"],
     title: "Toraja3",
-    sections: [{ title: "lorem impsum", type: "TXT", text: "lorem impsum" }],
+    sections: [
+      { id: 0, title: "lorem impsum", type: "TXT", text: "lorem impsum" },
+    ],
     datePublished: "12-07-2023",
     category: "attractions",
   },
@@ -83,7 +101,9 @@ let articles: Blog[] = [
     id: 8,
     imgUrls: ["images/toraja-cover.jpg"],
     title: "Toraja4",
-    sections: [{ title: "lorem impsum", type: "TXT", text: "lorem impsum" }],
+    sections: [
+      { id: 0, title: "lorem impsum", type: "TXT", text: "lorem impsum" },
+    ],
     datePublished: "12-07-2023",
     category: "attractions",
   },
@@ -91,7 +111,9 @@ let articles: Blog[] = [
     id: 9,
     imgUrls: ["images/toraja-cover.jpg"],
     title: "Toraja5",
-    sections: [{ title: "lorem impsum", type: "TXT", text: "lorem impsum" }],
+    sections: [
+      { id: 0, title: "lorem impsum", type: "TXT", text: "lorem impsum" },
+    ],
     datePublished: "12-07-2023",
     category: "attractions",
   },
@@ -99,7 +121,9 @@ let articles: Blog[] = [
     id: 10,
     imgUrls: ["images/toraja-cover.jpg"],
     title: "Toraja1",
-    sections: [{ title: "lorem impsum", type: "TXT", text: "lorem impsum" }],
+    sections: [
+      { id: 0, title: "lorem impsum", type: "TXT", text: "lorem impsum" },
+    ],
     datePublished: "12-07-2023",
     category: "things-to-do",
   },
@@ -107,7 +131,9 @@ let articles: Blog[] = [
     id: 11,
     imgUrls: ["images/toraja-cover.jpg"],
     title: "Toraja2",
-    sections: [{ title: "lorem impsum", type: "TXT", text: "lorem impsum" }],
+    sections: [
+      { id: 0, title: "lorem impsum", type: "TXT", text: "lorem impsum" },
+    ],
     datePublished: "12-07-2023",
     category: "things-to-do",
   },
@@ -115,7 +141,9 @@ let articles: Blog[] = [
     id: 12,
     imgUrls: ["images/toraja-cover.jpg"],
     title: "Toraja3",
-    sections: [{ title: "lorem impsum", type: "TXT", text: "lorem impsum" }],
+    sections: [
+      { id: 0, title: "lorem impsum", type: "TXT", text: "lorem impsum" },
+    ],
     datePublished: "12-07-2023",
     category: "things-to-do",
   },
@@ -123,7 +151,9 @@ let articles: Blog[] = [
     id: 13,
     imgUrls: ["images/toraja-cover.jpg"],
     title: "Toraja4",
-    sections: [{ title: "lorem impsum", type: "TXT", text: "lorem impsum" }],
+    sections: [
+      { id: 0, title: "lorem impsum", type: "TXT", text: "lorem impsum" },
+    ],
     datePublished: "12-07-2023",
     category: "things-to-do",
   },
@@ -131,7 +161,9 @@ let articles: Blog[] = [
     id: 14,
     imgUrls: ["images/toraja-cover.jpg"],
     title: "Toraja5",
-    sections: [{ title: "lorem impsum", type: "TXT", text: "lorem impsum" }],
+    sections: [
+      { id: 0, title: "lorem impsum", type: "TXT", text: "lorem impsum" },
+    ],
     datePublished: "12-07-2023",
     category: "things-to-do",
   },
@@ -139,9 +171,15 @@ let articles: Blog[] = [
 async function refreshArticles() {
   console.log("Refreshing articles");
   if (process.env.NEXT_PUBLIC_ARTICLE_URL != null) {
-    const res = await fetch(process.env.NEXT_PUBLIC_ARTICLE_URL + "/all");
-    if (res.ok) {
-      articles = await res.json();
+    try {
+      const res = await fetch(process.env.NEXT_PUBLIC_ARTICLE_URL + "/all");
+      if (res.ok) {
+        const blogs = await res.json();
+        articles = blogs;
+        console.log(blogs);
+      }
+    } catch (e) {
+      window.alert("FAILED TO SEND REQUEST TO SERVER");
     }
   } else {
     console.warn("No ARTICLE_URL found");
@@ -180,4 +218,44 @@ export async function searchArticles(query: string): Promise<Blog[]> {
     });
     return a.title.includes(query) || a.category.includes(query) || inASection;
   });
+}
+export default async function addArticle(payload: {
+  title: string;
+  category: string;
+  sections: ArticleSection[];
+}) {
+  if (!getAuth()) {
+    return;
+  }
+  if (process.env.NEXT_PUBLIC_ARTICLE_URL != null) {
+    try {
+      const res = await fetch(process.env.NEXT_PUBLIC_ARTICLE_URL, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${getAuth().accessToken}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+      if (res.ok) {
+        articles = await res.json();
+        alert(`Successfully added article with code "${res.status}".`);
+      } else if (res.status == 401) {
+        refresh();
+        // addArticle(payload);
+      } else if (res.status == 400) {
+        const body: { code: string; details: string; timestamp: string } =
+          await res.json();
+        alert(
+          `${body.code}\nDetails: ${body.details}\nTimestamp: ${body.timestamp}`
+        );
+      } else {
+        alert(`${res.status}: ${await res.json()}`);
+      }
+    } catch {
+      alert("COULD NOT SEND REQUEST TO SERVER");
+    }
+  } else {
+    console.warn("No ARTICLE_URL found");
+  }
 }

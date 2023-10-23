@@ -5,6 +5,7 @@ import com.torajawonders.torajawondersapi.payload.ArticleDto;
 import com.torajawonders.torajawondersapi.payload.ArticleResponse;
 import com.torajawonders.torajawondersapi.payload.ArticleSectionDto;
 import com.torajawonders.torajawondersapi.service.ArticleService;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -13,7 +14,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/articles/")
+@RequestMapping("/api/articles")
+@CrossOrigin
 public class ArticleController {
     private ArticleService articleService;
 
@@ -29,7 +31,9 @@ public class ArticleController {
         return ResponseEntity.ok(a);
     }
     @PreAuthorize("hasRole('ADM')")
+    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
+    @ResponseBody
     public ArticleResponse addArticle(@RequestBody ArticleDto articleDto) {
         return articleService.addArticle(articleDto);
     }
@@ -39,4 +43,11 @@ public class ArticleController {
         return articleService.getAllArticles();
     }
 
+    @RequestMapping(method = RequestMethod.OPTIONS, value = "")
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity options(HttpServletResponse response) {
+        System.out.println("OPTIONS called");
+        response.setHeader("Allow", "HEAD,GET,PUT,OPTIONS");
+        return new ResponseEntity(HttpStatus.OK);
+    }
 }

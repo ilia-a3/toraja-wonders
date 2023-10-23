@@ -17,7 +17,7 @@ import java.util.List;
 public class ArticleDto {
     private long id;
     private String title;
-    private List<String> imgUrls;
+//    private List<String> imgUrls;
     private List<ArticleSectionDto> sections;
     private String category;
 }

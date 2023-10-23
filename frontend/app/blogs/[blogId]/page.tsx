@@ -14,7 +14,23 @@ export default function BlogPage(props: { params: { blogId: string } }) {
   return (
     <div id="BlogPage">
       <PageCover title={blog?.title || "Blog Not Found"} />
-      Blog: {title}
+      <h1>{title}</h1>
+      {blog?.sections.map((s) => (
+        <div className={"section " + s.type}>
+          {s.type == "MIX" ? (
+            <>
+              <img src={s.imgUrl} alt={s.text} />
+              <p>{s.text}</p>
+            </>
+          ) : s.type == "IMG" ? (
+            <img src={s.imgUrl} alt={s.text} />
+          ) : s.type == "TXT" ? (
+            <p>{s.text}</p>
+          ) : (
+            <p>There is a problem with this section.</p>
+          )}
+        </div>
+      ))}
     </div>
   );
 }

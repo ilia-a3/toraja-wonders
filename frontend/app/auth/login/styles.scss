@@ -22,14 +22,14 @@
       }
     }
 
-    border-radius: 20px;
+    border-radius: var(--def-border-r);
     padding: 2rem;
     label {
       display: block;
     }
     input,
     button {
-      border-radius: 20px;
+      border-radius: var(--def-border-r);
       padding: 0.5rem;
     }
     button {
@@ -64,7 +64,7 @@
       border: var(--primary-col) 3px solid;
       color: var(--light-col);
       padding: 1rem;
-      border-radius: 20px;
+      border-radius: var(--def-border-r);
       margin-top: 3rem;
       display: block;
       text-align: center;

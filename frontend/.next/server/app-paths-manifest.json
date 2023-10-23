@@ -1,18 +1,5 @@
 {
-  "/favicon.ico/route": "app/favicon.ico/route.js",
   "/page": "app/page.js",
-  "/about-indonesia/page": "app/about-indonesia/page.js",
-  "/admin/page": "app/admin/page.js",
-  "/blogs/page": "app/blogs/page.js",
-  "/contact-us/page": "app/contact-us/page.js",
-  "/example/page": "app/example/page.js",
-  "/explore/page": "app/explore/page.js",
-  "/packages/page": "app/packages/page.js",
-  "/partnerships/page": "app/partnerships/page.js",
-  "/search/page": "app/search/page.js",
-  "/admin/articles/page": "app/admin/articles/page.js",
   "/auth/login/page": "app/auth/login/page.js",
-  "/blogs/[blogId]/page": "app/blogs/[blogId]/page.js",
-  "/admin/articles/new/page": "app/admin/articles/new/page.js",
-  "/admin/articles/by-id/[articleTitle]/page": "app/admin/articles/by-id/[articleTitle]/page.js"
+  "/admin/articles/new/page": "app/admin/articles/new/page.js"
 }

@@ -10,5 +10,5 @@ POST http://localhost:8080/api/auth/refresh
 Content-Type: application/json
 
 {
-  "refreshToken": "787ddec3-305b-45c4-8c96-85e1a3f442fb@Sat-Sep-30-18:53:27-AEST-2023"
+  "refreshToken": "149b9e4-6530-40dc-9fde-f04ecae42587@Thu-Oct-05-16:49:48-AEDT-2023"
 }

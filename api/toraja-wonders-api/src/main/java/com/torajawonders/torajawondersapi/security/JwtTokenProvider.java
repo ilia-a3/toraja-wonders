@@ -55,7 +55,7 @@ public class JwtTokenProvider {
         return username;
     }
 
-    public boolean validateToken(String token){
+    public boolean validateToken(String token) throws APIException {
         try {
             Jwts.parserBuilder()
                     .setSigningKey(key())
@@ -63,13 +63,13 @@ public class JwtTokenProvider {
                     .parse(token);
             return true;
         } catch (MalformedJwtException e) {
-            throw new APIException("SECURITY_ERROR", "Invalid JWT Format", HttpStatus.BAD_REQUEST);
+            throw new APIException("TOKEN_INVALID", "Invalid JWT Format", HttpStatus.BAD_REQUEST);
         } catch (ExpiredJwtException e) {
-            throw new APIException("SECURITY_ERROR", "Expired JWT Token", HttpStatus.BAD_REQUEST);
+            throw new APIException("TOKEN_EXPIRED", "Expired JWT Token", HttpStatus.BAD_REQUEST);
         } catch (UnsupportedJwtException e) {
-            throw new APIException("SECURITY_ERROR", "Unsupported JWT Token", HttpStatus.BAD_REQUEST);
+            throw new APIException("TOKEN_UNSUPPORTED", "Unsupported JWT Token", HttpStatus.BAD_REQUEST);
         } catch (IllegalArgumentException e) {
-            throw new APIException("SECURITY_ERROR", "JWT Claims String Empty", HttpStatus.BAD_REQUEST);
+            throw new APIException("JWT_TOKEN_CLAIMS_EMPTY", "JWT Claims String Empty", HttpStatus.BAD_REQUEST);
         }
     }
 }

@@ -32,7 +32,7 @@ public class ArticleServiceImpl implements ArticleService {
         try {
             Article a = articleRepository.findByTitle(title).orElseThrow(() -> new RuntimeException("No articles found with that title"));
             ArticleResponse articleDto = modelMapper.map(a, ArticleResponse.class);
-            articleDto.setImgUrls(List.of(a.getImgUrls().split(",")));
+//            articleDto.setImgUrls(List.of(a.getImgUrls().split(",")));
             return articleDto;
         } catch (RuntimeException e) {
             return null;
@@ -42,7 +42,7 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public ArticleResponse addArticle(ArticleDto articleDto) {
         Article article = modelMapper.map(articleDto, Article.class);
-        article.setImgUrls(String.join(",", articleDto.getImgUrls()));
+//        article.setImgUrls(String.join(",", articleDto.getImgUrls()));
         article.setSections(articleDto.getSections().stream().map(this::addArticleSection).collect(Collectors.toList()));
         article.setDatePublished(new Date());
         articleRepository.save(article);
@@ -60,6 +60,8 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     public ArticleSection addArticleSection(ArticleSectionDto articleSectionDto) {
+        long id = new ArticleSection().getId();
+        articleSectionDto.setId(id);
         return articleSectionRepository.save(modelMapper.map(articleSectionDto, ArticleSection.class));
     }
 }
