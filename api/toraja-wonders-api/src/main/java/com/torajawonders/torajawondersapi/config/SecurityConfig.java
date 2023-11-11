@@ -59,7 +59,7 @@ public class SecurityConfig {
 //        });
 //        http.addFilterBefore(authFilter, UsernamePasswordAuthenticationFilter.class);
 //        return http.build();
-        http.csrf(AbstractHttpConfigurer::disable).authorizeHttpRequests((authorize) ->
+        http.requiresChannel(ch -> ch.anyRequest().requiresSecure()).csrf(AbstractHttpConfigurer::disable).authorizeHttpRequests((authorize) ->
                         authorize.anyRequest().permitAll()
 
         ).exceptionHandling(e ->
