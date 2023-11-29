@@ -18,7 +18,7 @@ export default function loginPage() {
       return;
     }
     try {
-      const res = await fetch(process.env.NEXT_PUBLIC_AUTH_URL + "login", {
+      const res = await fetch(process.env.NEXT_PUBLIC_AUTH_URL + "/login", {
         method: "POST",
         body: JSON.stringify({
           username: usernameRef.current?.value,

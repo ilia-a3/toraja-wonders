@@ -16,7 +16,7 @@ export function setAuth(auth: { refreshToken: string; accessToken: string }) {
 export async function refresh() {
   if (getAuth().refreshToken && process.env.NEXT_PUBLIC_AUTH_URL) {
     try {
-      const res = await fetch(process.env.NEXT_PUBLIC_AUTH_URL + "/refresh", {
+      const res = await fetch(process.env.NEXT_PUBLIC_AUTH_URL + "refresh", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
