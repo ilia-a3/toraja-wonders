@@ -15,7 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/articles")
-@CrossOrigin
+@CrossOrigin(origins = {"http://localhost:3000/", "localhost:3000/", "http://localhost:8080/", "localhost:8080/"})
 public class ArticleController {
     private ArticleService articleService;
 

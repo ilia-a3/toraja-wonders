@@ -1,0 +1,59 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+// export interface ArticleSection {
+//   id: number;
+//   title: string;
+//   type: string;
+//   text?: string;
+//   imgUrl?: string;
+// }
+// export interface Blog {
+//   imgUrls: string[];
+//   title: string;
+//   id: number;
+//   sections: ArticleSection[];
+//   datePublished: string;
+//   category: string;
+// }
+model BlogSection {
+  id     Int     @id @default(autoincrement())
+  title  String @unique
+  type   String
+  text   String? 
+  imgUrl String?
+  blog   Blog    @relation(fields: [blogId], references: [id])
+  blogId Int
+}
+model Blog {
+  id       Int           @id @default(autoincrement())
+  imgUrl  String?
+  title    String        @unique
+  sections BlogSection[]
+  category Category[]
+}
+model User {
+  id Int @id @default(autoincrement())
+  username String @unique
+  email String @unique
+  password String
+  role Role @default(USER)
+}
+enum Role {
+  USER
+  ADMIN
+}
+enum Category {
+  INTERESTING
+  EXPLORE
+  WILDLIFE
+  VEGATATION
+}
