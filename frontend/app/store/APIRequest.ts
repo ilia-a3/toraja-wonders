@@ -20,7 +20,7 @@ let articles: Blog[] = [
   {
     id: 0,
     imgUrls: ["images/toraja-cover.jpg"],
-    title: "Toraja1",
+    title: "history-of-sulawesi-island",
     sections: [
       { id: 0, title: "lorem impsum", type: "TXT", text: "lorem impsum" },
     ],
@@ -30,7 +30,7 @@ let articles: Blog[] = [
   {
     id: 1,
     imgUrls: ["images/toraja-cover.jpg"],
-    title: "Toraja2",
+    title: "things-to-do",
     sections: [
       { id: 0, title: "lorem impsum", type: "TXT", text: "lorem impsum" },
     ],
@@ -40,150 +40,30 @@ let articles: Blog[] = [
   {
     id: 2,
     imgUrls: ["images/toraja-cover.jpg"],
-    title: "Toraja3",
+    title: "top-attractions",
     sections: [
       { id: 0, title: "lorem impsum", type: "TXT", text: "lorem impsum" },
     ],
     datePublished: "12-07-2023",
     category: "popular-destinations",
-  },
-  {
-    id: 3,
-    imgUrls: ["images/toraja-cover.jpg"],
-    title: "Toraja4",
-    sections: [
-      { id: 0, title: "lorem impsum", type: "TXT", text: "lorem impsum" },
-    ],
-    datePublished: "12-07-2023",
-    category: "popular-destinations",
-  },
-  {
-    id: 4,
-    imgUrls: ["images/toraja-cover.jpg"],
-    title: "Toraja5",
-    sections: [
-      { id: 0, title: "lorem impsum", type: "TXT", text: "lorem impsum" },
-    ],
-    datePublished: "12-07-2023",
-    category: "popular-destinations",
-  },
-  {
-    id: 5,
-    imgUrls: ["images/toraja-cover.jpg"],
-    title: "Toraja1",
-    sections: [
-      { id: 0, title: "lorem impsum", type: "TXT", text: "lorem impsum" },
-    ],
-    datePublished: "12-07-2023",
-    category: "attractions",
-  },
-  {
-    id: 6,
-    imgUrls: ["images/toraja-cover.jpg"],
-    title: "Toraja2",
-    sections: [
-      { id: 0, title: "lorem impsum", type: "TXT", text: "lorem impsum" },
-    ],
-    datePublished: "12-07-2023",
-    category: "attractions",
-  },
-  {
-    id: 7,
-    imgUrls: ["images/toraja-cover.jpg"],
-    title: "Toraja3",
-    sections: [
-      { id: 0, title: "lorem impsum", type: "TXT", text: "lorem impsum" },
-    ],
-    datePublished: "12-07-2023",
-    category: "attractions",
-  },
-  {
-    id: 8,
-    imgUrls: ["images/toraja-cover.jpg"],
-    title: "Toraja4",
-    sections: [
-      { id: 0, title: "lorem impsum", type: "TXT", text: "lorem impsum" },
-    ],
-    datePublished: "12-07-2023",
-    category: "attractions",
-  },
-  {
-    id: 9,
-    imgUrls: ["images/toraja-cover.jpg"],
-    title: "Toraja5",
-    sections: [
-      { id: 0, title: "lorem impsum", type: "TXT", text: "lorem impsum" },
-    ],
-    datePublished: "12-07-2023",
-    category: "attractions",
-  },
-  {
-    id: 10,
-    imgUrls: ["images/toraja-cover.jpg"],
-    title: "Toraja1",
-    sections: [
-      { id: 0, title: "lorem impsum", type: "TXT", text: "lorem impsum" },
-    ],
-    datePublished: "12-07-2023",
-    category: "things-to-do",
-  },
-  {
-    id: 11,
-    imgUrls: ["images/toraja-cover.jpg"],
-    title: "Toraja2",
-    sections: [
-      { id: 0, title: "lorem impsum", type: "TXT", text: "lorem impsum" },
-    ],
-    datePublished: "12-07-2023",
-    category: "things-to-do",
-  },
-  {
-    id: 12,
-    imgUrls: ["images/toraja-cover.jpg"],
-    title: "Toraja3",
-    sections: [
-      { id: 0, title: "lorem impsum", type: "TXT", text: "lorem impsum" },
-    ],
-    datePublished: "12-07-2023",
-    category: "things-to-do",
-  },
-  {
-    id: 13,
-    imgUrls: ["images/toraja-cover.jpg"],
-    title: "Toraja4",
-    sections: [
-      { id: 0, title: "lorem impsum", type: "TXT", text: "lorem impsum" },
-    ],
-    datePublished: "12-07-2023",
-    category: "things-to-do",
-  },
-  {
-    id: 14,
-    imgUrls: ["images/toraja-cover.jpg"],
-    title: "Toraja5",
-    sections: [
-      { id: 0, title: "lorem impsum", type: "TXT", text: "lorem impsum" },
-    ],
-    datePublished: "12-07-2023",
-    category: "things-to-do",
   },
 ];
 async function refreshArticles() {
-  console.log("Refreshing articles");
-  if (process.env.NEXT_PUBLIC_ARTICLE_URL != null) {
-    try {
-      const res = await fetch(process.env.NEXT_PUBLIC_ARTICLE_URL + "/all");
-      if (res.ok) {
-        const blogs = await res.json();
-        articles = blogs;
-        console.log(blogs);
-      }
-    } catch (e) {
-      window.alert("FAILED TO SEND REQUEST TO SERVER");
-    }
-  } else {
-    console.warn("No ARTICLE_URL found");
-  }
+  // console.log("Refreshing articles");
+  // if (process.env.NEXT_PUBLIC_ARTICLE_URL != null) {
+  //   try {
+  //     const res = await fetch(process.env.NEXT_PUBLIC_ARTICLE_URL + "/all");
+  //     if (res.ok) {
+  //       const blogs = await res.json();
+  //       articles = blogs;
+  //       console.log(blogs);
+  //     }
+  //   } catch (e) {
+  //     window.alert("FAILED TO SEND REQUEST TO SERVER");
+  //   }
+  // } else {
+  //   console.warn("No ARTICLE_URL found");
+  // }
 }
 
 export async function getArticleOfType(type: string): Promise<Blog[]> {
@@ -192,7 +72,7 @@ export async function getArticleOfType(type: string): Promise<Blog[]> {
   return articles.filter((v) => type == v.category);
 }
 export async function getArticleByTitle(title: string): Promise<Blog | null> {
-  refreshArticles();
+  // refreshArticles();
   let blog = null;
   articles.forEach((a) => {
     if (a.title == title) {

@@ -19,18 +19,18 @@ export default function Home() {
   const destinationsRef = useRef<HTMLDivElement>(null);
   // const [loaded, setloaded] = useState(false);
   const [tileSize, setTileSize] = useState(300);
-  useEffect(() => {
-    // setloaded(true);
-    if (window && window.outerWidth < 300) {
-      setTileSize(window.outerWidth * 0.9);
-    }
-    console.log(tileSize);
-    (async () => {
-      setThings(await getArticleOfType("things-to-do"));
-      setDestinations(await getArticleOfType("popular-destinations"));
-      setattractions(await getArticleOfType("attractions"));
-    })();
-  }, []);
+  // useEffect(() => {
+  //   // setloaded(true);
+  //   if (window && window.outerWidth < 300) {
+  //     setTileSize(window.outerWidth * 0.9);
+  //   }
+  //   console.log(tileSize);
+  //   (async () => {
+  //     setThings(await getArticleOfType("things-to-do"));
+  //     setDestinations(await getArticleOfType("popular-destinations"));
+  //     setattractions(await getArticleOfType("attractions"));
+  //   })();
+  // }, []);
   const [destinations, setDestinations] = useState<Blog[]>([]);
   const attractionsRef = useRef<HTMLDivElement>(null);
   const [attractions, setattractions] = useState<Blog[]>([]);
@@ -56,13 +56,13 @@ export default function Home() {
           <h2>Want To Find A Place To Visit These Holidays?</h2>
           <p>Explore more about Sulawesi to persue your dream vacation</p>
           <div id="buttons">
-            <Link href="#places-to-explore" className="Link">
+            <Link href="/blogs/popular-destinations" className="Link">
               Popular Destinations
             </Link>
-            <Link href="#top-attractions" className="Link">
+            <Link href="/blogs/top-attractions" className="Link">
               Biggest Attractions
             </Link>
-            <Link href="#things-to-do" className="Link">
+            <Link href="/blogs/things-to-do" className="Link">
               Things To Do
             </Link>
           </div>
@@ -70,39 +70,6 @@ export default function Home() {
         <img
           src="images/img-1.jpg"
           alt="Staircase down from beautiful mountain top."
-        />
-      </section>
-      <section id="places-to-explore">
-        {/* <Link href="example">Amongus</Link> */}
-        <h2>Where to explore in Sulawesi</h2>
-        <HomeExploreSection
-          title={"popular-destinations"}
-          description={
-            "Some of the hottest and most popular destinations that are visited very frequently."
-          }
-          elements={destinations}
-          tileSize={tileSize}
-          coverUrl="/images/toraja-cover.jpg"
-        ></HomeExploreSection>
-        <hr />
-        <HomeExploreSection
-          title={"biggest-attractions"}
-          description={
-            "Highly rated and recommended attractions that make up Sulawesi."
-          }
-          elements={attractions}
-          tileSize={tileSize}
-          coverUrl="/images/toraja-cover.jpg"
-        />
-        <hr />
-        <HomeExploreSection
-          title={"things-to-do"}
-          description={
-            "Not sure what Sulawesi is about? Find out about what you can do."
-          }
-          elements={things}
-          tileSize={tileSize}
-          coverUrl="/images/toraja-cover.jpg"
         />
       </section>
       <section id="orderHome">
