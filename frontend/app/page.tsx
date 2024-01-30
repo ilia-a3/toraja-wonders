@@ -56,14 +56,14 @@ export default function Home() {
           <h2>Want To Find A Place To Visit These Holidays?</h2>
           <p>Explore more about Sulawesi to persue your dream vacation</p>
           <div id="buttons">
-            <Link href="/blogs/popular-destinations" className="Link">
-              Popular Destinations
+            <Link href="/blogs/guide" className="Link">
+              Guide To Indonesia
             </Link>
-            <Link href="/blogs/top-attractions" className="Link">
-              Biggest Attractions
+            <Link href="/blogs/tips" className="Link">
+              Tips For Exploring Sulawesi
             </Link>
-            <Link href="/blogs/things-to-do" className="Link">
-              Things To Do
+            <Link href="/blogs/discovering" className="Link">
+              Where To Explore
             </Link>
           </div>
         </div>

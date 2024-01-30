@@ -1,17 +1,25 @@
 export default function getAllPages(): { name: string; uri: string }[] {
   return [
-    { name: "Places to explore", uri: "/blogs/places-to-explore" },
+    {
+      name: "Guide To Indonesia",
+      uri: "/blogs/guide",
+    },
+    {
+      name: "Tips For Exploring Indonesia",
+      uri: "/blogs/tips",
+    },
+    { name: "Places to explore", uri: "/blogs/discovering" },
     { name: "Packages", uri: "/packages" },
-    { name: "About Indonesia", uri: "/about-indonesia" },
-    {
-      name: "Things to do in Indonesia",
-      uri: "/blogs/things-to-do-in-indonesia",
-    },
-    {
-      name: "History of Sulawesi Island",
-      uri: "/blogs/history-of-sulawesi-island",
-    },
     { name: "Contact Us", uri: "/contact-us" },
     { name: "Partnerships", uri: "/partnerships" },
   ];
 }
+// <Link href="/blogs/guide" className="Link">
+// Guide To Indonesia
+// </Link>
+// <Link href="/blogs/tips" className="Link">
+// Tips For Exploring Sulawesi
+// </Link>
+// <Link href="/blogs/discovering" className="Link">
+// Where To Explore
+// </Link>

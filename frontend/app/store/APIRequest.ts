@@ -235,20 +235,20 @@ let articles: Blog[] = [
 ];
 async function refreshArticles() {
   console.log("Refreshing articles");
-  if (process.env.NEXT_PUBLIC_ARTICLE_URL != null) {
-    try {
-      const res = await fetch(process.env.NEXT_PUBLIC_ARTICLE_URL + "/all");
-      if (res.ok) {
-        const blogs = await res.json();
-        articles = blogs;
-        console.log(blogs);
-      }
-    } catch (e) {
-      window.alert("FAILED TO SEND REQUEST TO SERVER");
-    }
-  } else {
-    console.warn("No ARTICLE_URL found");
-  }
+  // if (process.env.NEXT_PUBLIC_ARTICLE_URL != null) {
+  //   try {
+  //     const res = await fetch(process.env.NEXT_PUBLIC_ARTICLE_URL + "/all");
+  //     if (res.ok) {
+  //       const blogs = await res.json();
+  //       articles = blogs;
+  //       console.log(blogs);
+  //     }
+  //   } catch (e) {
+  //     window.alert("FAILED TO SEND REQUEST TO SERVER");
+  //   }
+  // } else {
+  //   console.warn("No ARTICLE_URL found");
+  // }
 }
 
 export async function getArticleOfType(type: string): Promise<Blog[]> {

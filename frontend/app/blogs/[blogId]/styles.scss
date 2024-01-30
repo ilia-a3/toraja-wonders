@@ -1,2 +1,20 @@
 #BlogPage {
+  .section {
+    /* padding: 2rem 1rem 2rem 1rem; */
+    padding: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 65rem;
+    .txt-conc {
+      font-style: italic;
+    }
+    .txt-intr {
+      font-style: italic;
+    }
+    h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+  }
 }
