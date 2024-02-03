@@ -9,10 +9,10 @@ import {
   faArrowRightLong,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Blog, getArticleOfType } from "./store/APIRequest";
+import { Blog, getAllArticles, getArticleOfType } from "./store/APIRequest";
 import Link from "next/link";
 import HomeExploreSection from "./components/homeSection/HomeSection";
-
+import "./article.scss";
 // const TILE_SIZE = 300;
 
 export default function Home() {
@@ -36,6 +36,10 @@ export default function Home() {
   const [attractions, setattractions] = useState<Blog[]>([]);
   const thingsRef = useRef<HTMLDivElement>(null);
   const [things, setThings] = useState<Blog[]>([]);
+  const [blog, setBlog] = useState<Blog>();
+  useEffect(() => {
+    setBlog(getAllArticles()[0]);
+  });
 
   function onHeroClick(to: string) {
     if (to == "destinations") {
@@ -71,6 +75,39 @@ export default function Home() {
           src="images/img-1.jpg"
           alt="Staircase down from beautiful mountain top."
         />
+      </section>
+      <section id="read">
+        <div id="title">
+          <h3>{blog?.display}</h3>
+        </div>
+        <ol>
+          <div id="backdrop">
+            {blog?.sections.map((s) => (
+              <div className={"section " + s.type} key={s.id}>
+                <h3>{s.title}</h3>
+                {s.type == "MIX" ? (
+                  <>
+                    <img src={s.imgUrl} alt={s.text} />
+                    <p>{s.text}</p>
+                  </>
+                ) : s.type == "IMG" ? (
+                  <img src={s.imgUrl} alt={s.text} />
+                ) : s.type == "TXT" ? (
+                  <p>{s.text}</p>
+                ) : s.type == "BLT" ? (
+                  <li className="txt-blt">{s.text}</li>
+                ) : s.type == "INTR" ? (
+                  <p className="txt-intr">{s.text}</p>
+                ) : s.type == "CONC" ? (
+                  <p className="txt-conc">{s.text}</p>
+                ) : (
+                  <p>There is a problem with this section.</p>
+                )}
+              </div>
+            ))}
+          </div>
+        </ol>
+        <button id="read-more">Continue Reading</button>
       </section>
       <section id="orderHome">
         <h1>Want To Travel Indonesia?</h1>

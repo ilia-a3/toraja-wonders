@@ -16,27 +16,31 @@ export default function BlogPage(props: { params: { blogId: string } }) {
     <div id="BlogPage">
       <PageCover title={blog?.display || "Blog Not Found"} size={42} />
       {/* <h1>{title}</h1> */}
-      {blog?.sections.map((s) => (
-        <div className={"section " + s.type} key={s.id}>
-          <h3>{s.title}</h3>
-          {s.type == "MIX" ? (
-            <>
+      <ol>
+        {blog?.sections.map((s) => (
+          <div className={"section " + s.type} key={s.id}>
+            <h3>{s.title}</h3>
+            {s.type == "MIX" ? (
+              <>
+                <img src={s.imgUrl} alt={s.text} />
+                <p>{s.text}</p>
+              </>
+            ) : s.type == "IMG" ? (
               <img src={s.imgUrl} alt={s.text} />
+            ) : s.type == "TXT" ? (
               <p>{s.text}</p>
-            </>
-          ) : s.type == "IMG" ? (
-            <img src={s.imgUrl} alt={s.text} />
-          ) : s.type == "TXT" ? (
-            <p>{s.text}</p>
-          ) : s.type == "INTR" ? (
-            <p className="txt-intr">{s.text}</p>
-          ) : s.type == "CONC" ? (
-            <p className="txt-conc">{s.text}</p>
-          ) : (
-            <p>There is a problem with this section.</p>
-          )}
-        </div>
-      ))}
+            ) : s.type == "BLT" ? (
+              <li className="txt-blt">{s.text}</li>
+            ) : s.type == "INTR" ? (
+              <p className="txt-intr">{s.text}</p>
+            ) : s.type == "CONC" ? (
+              <p className="txt-conc">{s.text}</p>
+            ) : (
+              <p>There is a problem with this section.</p>
+            )}
+          </div>
+        ))}
+      </ol>
     </div>
   );
 }

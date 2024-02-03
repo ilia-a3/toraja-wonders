@@ -267,8 +267,8 @@ export async function getArticleByTitle(title: string): Promise<Blog | null> {
   return blog;
 }
 
-export async function getAllArticles() {
-  await refreshArticles();
+export function getAllArticles(): Blog[] {
+  refreshArticles();
   return articles;
 }
 
