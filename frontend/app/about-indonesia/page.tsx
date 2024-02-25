@@ -3,7 +3,7 @@ import "./styles.scss";
 export default function AboutIndonesia() {
   return (
     <div id="AboutIndonesia">
-      <PageCover title="About Indonesia" />
+      <PageCover title="About Indonesia" size={12} />
       <section id="intro">
         <h1>Where Is Indonesia?</h1>
         <div className="body">
