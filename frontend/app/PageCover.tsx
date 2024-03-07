@@ -1,6 +1,6 @@
 import "./PageCover.scss";
 export default function PageCover(props: { title: string; size?: number }) {
-  const size = 12 || props.size;
+  const size = 60 || props.size;
   return (
     <div className="PageCover">
       <div id="backdrop">

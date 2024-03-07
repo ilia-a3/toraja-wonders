@@ -107,7 +107,9 @@ export default function Home() {
             ))}
           </div>
         </ol>
-        <button id="read-more">Continue Reading</button>
+        <Link id="read-more" href={"/blogs/guide"}>
+          <button>Continue Reading</button>
+        </Link>
       </section>
       <section id="orderHome">
         <h1>Want To Travel Indonesia?</h1>
